@@ -1,10 +1,35 @@
-//----------------[Codigo fuente]---------------
+// /$$$$$$$                       /$$                         /$$                 /$$$$$$$              /$$    
+// | $$__  $$                     | $$                        | $$                | $$__  $$            | $$    
+// | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$   /$$  /$$$$$$ | $$$$$$$   /$$$$$$ | $$  \ $$  /$$$$$$  /$$$$$$  
+// | $$$$$$$//$$__  $$ /$$__  $$|_  $$_/  | $$  | $$ /$$__  $$| $$__  $$ |____  $$| $$$$$$$  /$$__  $$|_  $$_/  
+// | $$____/| $$$$$$$$| $$  \__/  | $$    | $$  | $$| $$  \__/| $$  \ $$  /$$$$$$$| $$__  $$| $$  \ $$  | $$    
+// | $$     | $$_____/| $$        | $$ /$$| $$  | $$| $$      | $$  | $$ /$$__  $$| $$  \ $$| $$  | $$  | $$ /$$
+// | $$     |  $$$$$$$| $$        |  $$$$/|  $$$$$$/| $$      | $$$$$$$/|  $$$$$$$| $$$$$$$/|  $$$$$$/  |  $$$$/
+// |__/      \_______/|__/         \___/   \______/ |__/      |_______/  \_______/|_______/  \______/    \___/  
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// AUTHOR : MrTechX & Anabel GR| TecnoProjects Srcurity
+// PROJECT : PerturbaBot (Telegram Version)
+// VERSION : 1.0.0
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+//----------------[ For Replit ]----------------
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const app = express();
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static('public'));
+// app.get('/', function(request, response) {
+// 	response.sendFile(__dirname + '/views/index.html');
+// });
+// app.listen(3000, () => console.log(`v1.0.0`));
+
+//----------------[Codigo fuente]---------------
 //-----------------[Constantes]-----------------
 const { Telegraf } = require('telegraf');
 const config = require("./config/config.json");
-const system = require("./config/system.json");
 const vip = require("./config/vip.json");
+const developer = require("./config/developer.json")
 const bot = new Telegraf(config.token);
 
 //----------------[Variables]----------------
@@ -26,22 +51,23 @@ bot.start((ctx) => {
     ctx.reply('Holaa!! Bienvenid@ ' + ctx.from.first_name + ',' + ' Soy el PerturbaBot, puedes ejecutar el comando /menu para para ver el menu de comandos simple \n\nO si eres un usuario VIP escribe /SoyVip ' + skull)
 });
 
-bot.command('w_version', (ctx) => {
-    ctx.reply("Actualmente estoy en mi verison 1.0.9 que fue lanzada el 18/Feb/2022 por TecnoProjects Security | @Mr_TechX")
+bot.command('version', (ctx) => {
+    ctx.reply("Actualmente estoy en mi verison " + version + " que fue lanzada el " + fecha + " por TecnoProjects Security | @Mr_TechX")
 });
 
-bot.command('w_version_logs', (ctx) => {
-    ctx.reply("REGISTRO DE MODIFICACIONES: \n\n• Nuevos comandos VIP /w_SoyVip \n• Modificacion de funcionamiento rapido \n• Actualización de las /w_cryptos \n• Mejoras internas a nivel de codigo \n• Nuevo comando /w_edh para ver el grupo privado EDH \n\n• v1.0.9 - 18/Feb/2022")
+bot.command('version_logs', (ctx) => {
+    ctx.reply("REGISTRO DE MODIFICACIONES: \n\n• Comandos VIP /SoyVip \n• Funcionamiento rapido \n• Mejoras internas a nivel de codigo \n\n• " + version + " - " + fecha)
 });
 
-bot.command('w_my_code', (ctx) => {
-    ctx.reply("Puedes ver mi codigo fuente en el Github de mi programador, ahi puedes ver mis versiones pasadas y mi version actual en el lado del codigo https://github.com/Mr-TechX/Wall-E_Telegram")
-});
 
 //---------------------[Menus]--------------------
 bot.command('menu', (ctx) => {
-    ctx.reply("*MIS COMANDOS DEL GRUPO SON:* \n\n• /grupos - para obtener los links a nuestros grupos de facebook \n\n• /reglas - Para ver el reglamento del grupo \n\n• /w_hello - Para saludar a todo el grupo")
+    ctx.reply("*MI MENU DE COMANDOS ES:* \n\n• /grupos - para obtener los links a nuestros grupos de facebook \n\n• /reglas - Para ver el reglamento del grupo \n\n• /hello - Para saludar a todo el grupo \n\n• /chat_muerto - para tratar de revivir el chat con un imagen del chat muerto \n\n• /juegos - para ver el menu de comandos de juego \n\n• /creditos - Para ver los creditos del bot \n\n• /frases - Para ver la web de las frases de miembros del grupo \n\n• PROXIMAMENTE MAS COMANDOS")
 });
+
+bot.command('juegos', (ctx) => {
+    ctx.reply("MIS COMANDOS DE JUEGO SON: \n\n• /pregunta - Para preguntarme algo que pueda responder con (si, no, tal vez) \n\n• /pregunta_h - Para aprender a usar el comando anterior \n\n• /volado - para lanzar una moneda al aire \n\n• /volado_h - Para entender el comando anterior \n\n• /pescar - Para pescar un pes random del menu \n\n• PROXIMAMENTE MAS COMANDOS PARA JUGAR")
+})
 
 //-------------------[Commands]-------------------
 bot.command('grupos', (ctx) => {
@@ -60,6 +86,14 @@ bot.command('hello', (ctx) => {
     console.log(ctx.updateSubTypes)
     ctx.reply("Hola a todos " + skull + " Los saluda el PerturbaBot a todos ustedes.")
 });
+
+bot.command('creditos', (ctx) => {
+    ctx.reply("• CREDITOS DEL BOT: \n\n•  Anabel GR \n• Instagram | instagram.com/anabelguarniz \n\n•  MrTechX \n• Twitter | twitter.com/Mr_TechX \n• Instagram | instagram.com/mr.tech.x \n• GitHub | github.com/Mr-TechX \n• Telegram | @Mr_TechX \n• Reddit | reddit.com/u/Mr_TechX \n• Discord | MrTechX#6832")
+});
+
+bot.command('frases', (ctx) => {
+    ctx.reply("Los miembros del grupo de DrossRotzank UnidosPorTi tienen frases para compartir con los demás, puedes verlas aqui https://PerturbaBot.mrtechx.repl.co")
+})
 
 //-----------------[Diversion]-----------------
 bot.command('pregunta', (ctx) => {
@@ -112,8 +146,6 @@ bot.command('pt', (ctx) => {
   ctx.reply("El portafolio web de mi programador @Mr_TechX es: \n\n· https://web.ulisescamacho.repl.co")
 });
 
-
-
 //------------------------------[Variables especiales]------------------------------
 // Developers
 var TechX = developer.techx;
@@ -129,7 +161,7 @@ var aitor = vip.aitor;
 bot.command('vip', (ctx) => {
     let noVIP = "Tu no eres VIP, No trates de engañar al PerturbaBot" + skull;
     let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un VIP " + "(" + ctx.from.first_name + ")";
-        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === TechX || ctx.from.username === Anabel || ctx.from.username === "naye" || ctx.from.username == "aitor" || ctx.from.username) {
+        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === TechX || ctx.from.id === Anabel || ctx.from.username === "naye" || ctx.from.username == "aitor") {
             ctx.reply("LOS COMANDOS VIP SON: \n\n• /wsp - para compartir el link del grupo de whatsApp \n• /SoyVip - Inicio de un VIP \n• /admins - para ver el listado de admins y gente influyente del grupo. \n• / - para \n• PROXIMAMENTE \n\n• Puedes enviar sugerencias para comandos VIP a @Mr_TechX")
         } 
         else {
@@ -160,7 +192,7 @@ bot.command('SoyVip', (ctx) => {
 bot.command('dev', (ctx) => {
     let noVIP = "Tu no eres DEVELOPER, No trates de engañar al PerturbaBot" + skull;
     let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un DEVELOPER " + "(" + ctx.from.first_name + ")";
-        if(ctx.from.username === TechX || ctx.from.username === Anabel) {
+        if(ctx.from.username === TechX || ctx.from.id === Anabel) {
             ctx.reply("LOS COMANDOS DEV SON: \n\n• /report - para ver a donde reportar un bug o falla. \n• /SoyDev - Inicio y reconocimiento de un Dev. \n• /devs - para ver el listado de developers que hicieron y testearon mi funcionalidad. \n• /code - para ver mi codigo en GitHub. \n• /logs - para ver las novedades a nivel de programacion y testing. \n• /test - para ver las cosas que hay por testear. \n• /bugs - para ver los bugs actuales que reparar. \n• PROXIMAMENTE.")
         } 
         else {
@@ -171,7 +203,7 @@ bot.command('dev', (ctx) => {
 
 //----------------[DEV CMDS]----------------
 bot.command('SoyDev', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.username === Anabel) {
+    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
             ctx.reply("Holaa!! " + ctx.from.first_name + " Eres un usuario del equipo de desarrollo, eres miembro de las variables developer y tienes acceso a absolutamente todas las funciones de mi codigo, espero te agrade ser parte del equipo \n\nUsa /dev para ver los comandos para Developers");
             console.log("Ahora " + ctx.from.first_name + " Es miembro del equipo de desarrollo de PerturbaBot");
         }
@@ -182,7 +214,7 @@ bot.command('SoyDev', (ctx) => {
 });
 
 bot.command('report', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.username === Anabel) {
+    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
         ctx.reply("Puedes reportas las fallas que encuentres con @Mr_TechX aqui en Telegram o en nuestro servidor oficial de discord https://discord.gg/R3bgKtMsSH " + skull);
         console.log('Fue encontrado un nuevo error o bug que tal vez sea reportado pronto.');
     }
@@ -193,7 +225,7 @@ bot.command('report', (ctx) => {
 });
 
 bot.command('devs', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.username === Anabel) {
+    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
         ctx.reply("*Mis desarrolladores y testers son:* \n\n• Anabel GR - Prueba las funciones de codigo y reporta fallos de funcionalidad \n\n• @Mr_TechX - Programador y escritor del codigo de funcionalidad del bot.");
     }
     else {
@@ -202,8 +234,8 @@ bot.command('devs', (ctx) => {
 });
 
 bot.command('code', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.username === Anabel) {
-        ctx.reply("Puedes ver mi codigo fuente para revisarlo en busca de errores o sugerir modificaciones, solo visita mi GitHub https://github.com/PerturbaBot")
+    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
+        ctx.reply("Puedes ver mi codigo fuente para revisarlo en busca de errores o sugerir modificaciones, solo visita mi [GitHub](https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/Telegram/index.js) o revisa el repositorio completo [aqui](https://github.com/PerturbaBot)")
     }
 })
 
