@@ -1,4 +1,4 @@
-// /$$$$$$$                       /$$                         /$$                 /$$$$$$$              /$$    
+//  $$$$$$$                       /$$                         /$$                 /$$$$$$$              /$$    
 // | $$__  $$                     | $$                        | $$                | $$__  $$            | $$    
 // | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$   /$$   /$$  /$$$$$$ | $$$$$$$   /$$$$$$ | $$  \ $$  /$$$$$$  /$$$$$$  
 // | $$$$$$$//$$__  $$ /$$__  $$|_  $$_/  | $$  | $$ /$$__  $$| $$__  $$ |____  $$| $$$$$$$  /$$__  $$|_  $$_/  
@@ -35,8 +35,19 @@ const bot = new Telegraf(config.token);
 //----------------[Variables]----------------
 var prefix = "p_";
 var version = "v1.0.0";
-var fecha = "03/Abril/2022";
+var fecha = "12/Abril/2022";
 var skull = "💀";
+
+// Developers
+var techx = developer.techx;
+var anabel = developer.anabel;
+
+// VIP users
+var tania = vip.tania;
+var seitan = vip.seitan;
+var naye = vip.naye;
+var aitor = vip.aitor;
+var derik = vip.derik;
 
 //--------------[Mensaje de Consola]--------------
 console.log("PerturbaBot Online");
@@ -47,10 +58,15 @@ bot.start((ctx) => {
     console.log(ctx.chat)
     console.log(ctx.message)
     console.log(ctx.updateSubTypes)
+    const a = "xd";
 
     ctx.reply('Holaa!! Bienvenid@ ' + ctx.from.first_name + ',' + ' Soy el PerturbaBot, puedes ejecutar el comando /menu para para ver el menu de comandos simple \n\nO si eres un usuario VIP escribe /SoyVip ' + skull)
 });
 
+//--------------[Definicion de usuarios]--------------
+// var devs = ctx.from.username === techx || ctx.from.id === anabel;
+
+// //--------------[COMANDOS]--------------
 bot.command('version', (ctx) => {
     ctx.reply("Actualmente estoy en mi verison " + version + " que fue lanzada el " + fecha + " por TecnoProjects Security | @Mr_TechX")
 });
@@ -84,11 +100,11 @@ bot.command('hello', (ctx) => {
     console.log(ctx.chat)
     console.log(ctx.message)
     console.log(ctx.updateSubTypes)
-    ctx.reply("Hola a todos " + skull + " Los saluda el PerturbaBot a todos ustedes.")
+    ctx.reply("Hola a todos " + skull + " Los saluda el PerturbaBot a todos ustedes. ")
 });
 
 bot.command('creditos', (ctx) => {
-    ctx.reply("• CREDITOS DEL BOT: \n\n•  Anabel GR \n• Instagram | instagram.com/anabelguarniz \n\n•  MrTechX \n• Twitter | twitter.com/Mr_TechX \n• Instagram | instagram.com/mr.tech.x \n• GitHub | github.com/Mr-TechX \n• Telegram | @Mr_TechX \n• Reddit | reddit.com/u/Mr_TechX \n• Discord | MrTechX#6832")
+    ctx.reply("• CREDITOS DEL BOT: \n\n•  Anabel GR \n• Instagram | instagram.com/anabelguarniz \n• Telegram | @AnabelleSR \n\n•  MrTechX \n• Twitter | twitter.com/Mr__TechX \n• Instagram | instagram.com/mr.tech.x \n• GitHub | github.com/Mr-TechX \n• Telegram | @Mr_TechX \n• Reddit | reddit.com/u/Mr_TechX \n• Discord | MrTechX#6832")
 });
 
 bot.command('frases', (ctx) => {
@@ -107,13 +123,13 @@ bot.command('pregunta_h', (ctx) => {
 });
 
 bot.command('volado_h', (ctx) => {
-    let imgmain = "https://raw.githubusercontent.com/Mr-TechX/Wall-E_Telegram/v1.0.0/img/menu.jpg"
+    let imgmain = "https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/img/menu.jpg?raw=true"
     ctx.replyWithPhoto(imgmain)
 });
 
 bot.command('volado', (ctx) => {
-    let img1 = "https://raw.githubusercontent.com/Mr-TechX/Wall-E_Telegram/v1.0.0/img/cara.png"
-    let img2 = "https://raw.githubusercontent.com/Mr-TechX/Wall-E_Telegram/v1.0.0/img/cruz.png"
+    let img1 = "https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/img/moneda-cara.png?raw=true"
+    let img2 = "https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/img/moneda-troll.png?raw=true"
     let respuesta = [img1, img2]
     var random = respuesta[Math.floor(Math.random() * respuesta.length)]
     ctx.replyWithPhoto(`${random}`)
@@ -129,11 +145,13 @@ bot.command('pescar', (ctx) => {
 
 //----------------[Util/Extra]---------------
 bot.command('chat_muerto', (ctx) => {
-    let img1 = "link img"
-    let img2 = "link img2"
+    let img1 = "https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/img/chatm1.jpg?raw=true"
+    let img2 = "https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/img/chatm2.png?raw=true"
     let respuesta = [img1, img2]
+    let respuesta2 = ["EFECTIVAMENTE CHAT MUERTO", "EL CHAT ESTA MAS QUE MUERTO"]
     var random = respuesta[Math.floor(Math.random() * respuesta.length)]
-    ctx.reply("EFECTIVAMENTE CHAT MUERTO")
+    var random2 = respuesta2[Math.floor(Math.random() * respuesta2.length)]
+    ctx.reply(`${random2}`)
     ctx.replyWithPhoto(`${random}`)
 });
 
@@ -146,23 +164,12 @@ bot.command('pt', (ctx) => {
   ctx.reply("El portafolio web de mi programador @Mr_TechX es: \n\n· https://web.ulisescamacho.repl.co")
 });
 
-//------------------------------[Variables especiales]------------------------------
-// Developers
-var TechX = developer.techx;
-var Anabel = developer.anabel;
-
-// VIP users
-var tania = vip.tania;
-var seitan = vip.seitan;
-var naye = vip.naye;
-var aitor = vip.aitor; 
-
 //----------------[VIP MENU]----------------
 bot.command('vip', (ctx) => {
     let noVIP = "Tu no eres VIP, No trates de engañar al PerturbaBot" + skull;
     let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un VIP " + "(" + ctx.from.first_name + ")";
-        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === TechX || ctx.from.id === Anabel || ctx.from.username === "naye" || ctx.from.username == "aitor") {
-            ctx.reply("LOS COMANDOS VIP SON: \n\n• /wsp - para compartir el link del grupo de whatsApp \n• /SoyVip - Inicio de un VIP \n• /admins - para ver el listado de admins y gente influyente del grupo. \n• / - para \n• PROXIMAMENTE \n\n• Puedes enviar sugerencias para comandos VIP a @Mr_TechX")
+        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === techx || ctx.from.username === anabel || ctx.from.username === naye || ctx.from.username == aitor || ctx.from.username === derik) {
+            ctx.reply("LOS COMANDOS VIP SON: \n\n• /wsp - para compartir el link del grupo de whatsApp \n\n• /SoyVip - Inicio de un VIP \n\n• /admins - para ver el listado de admins y gente influyente del grupo. \n\n• /twitch - para obtener el Twitch de Dross \n\n• /kill - Este comando avisara a los usuarios que habra eliminacion masiva \n\n• PROXIMAMENTE \n\n• Puedes enviar sugerencias para comandos VIP a @Mr_TechX");
         } 
         else {
             ctx.reply(noVIP)
@@ -171,14 +178,62 @@ bot.command('vip', (ctx) => {
 });
 
 //----------------[VIP CMDS]----------------
+bot.command('wsp', (ctx) => {
+    let noVip = "Tu no eres VIP, no te puedo dar acceso a este comando";
+    let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un VIP " + "(" + ctx.from.first_name + ")";
+    if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === techx || ctx.from.username === anabel || ctx.from.username === naye || ctx.from.username === aitor || ctx.from.username === derik) {
+        ctx.reply("Este es el link del grupo de WhatsApp \nAl grupo de DrossRotzank UnidosPorTi \n\n• https://chat.whatsapp.com/Gpsrj3ukXrVALLyA9BOxS8");
+    }
+    else {
+        ctx.reply(noVip);
+        console.log(noVIPconsole);
+    }
+});
+
 bot.command('SoyVip', (ctx) => {
-    if(ctx.from.username === "daniela_ortiz_UwU" || ctx.from.username === "Bryan_ILC" || ctx.from.username === "ElpeinadoJR16" || ctx.from.username === "Mr_TechX" || ctx.from.id == "1594638516") {
-            ctx.reply("Holii " + ctx.from.first_name + " Eres un usuario VIP, eres mas importante para mi que todos los demás usuarios, tienes comandos que solo los VIP pueden usar, felicidades, me agradas y al parecer a mi programador también, tkm💛, Toma awita :) \n\nUsa /w_vip para ver los comandos VIP");
+    if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === techx || ctx.from.username === anabel || ctx.from.username === naye || ctx.from.username === aitor || ctx.from.username === derik) {
+            ctx.reply("Hola! " + ctx.from.first_name + " " + skull + " Eres un usuario VIP, asi que tienes acceso a la mayoria de comandos, puedes mostrar informacion confidencial del grupo asi que ten cuidado \n\nUsa /vip para ver los comandos VIP");
             console.log("Ahora " + ctx.from.first_name + " Es un usuario VIP");
         }
         else{
-            ctx.reply("Mentiroso, tu no eres VIP, no puedes engañar un Bot😎, Bye putito🖕🏻");
+            ctx.reply("Tu no eres VIP, No trates de engañar al PerturbaBot" + skull);
             console.log(`El usuario ${ctx.from.username} intento hacerse pasar por un VIP (${ctx.from.first_name})`);
+        }
+});
+
+bot.command('admins', (ctx) => {
+    let noVip = "Tu no eres VIP, no te puedo dar acceso a este comando";
+    let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un VIP " + "(" + ctx.from.first_name + ")";
+        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === techx || ctx.from.username === anabel || ctx.from.username === naye || ctx.from.username === aitor || ctx.from.username === derik) {
+            ctx.reply("Los usuairios VIP son los siguientes \n\n• @" + vip.tania + "\n• @" + vip.seitan + "\n• @" + vip.naye + "\n• @" + developer.techx);
+        }
+        else {
+            ctx.reply(noVip);
+            console.log(noVIPconsole);
+        }
+});
+
+bot.command('twitch', (ctx) => {
+    let noVip = "Tu no eres VIP, no te puedo dar acceso a este comando";
+    let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un VIP " + "(" + ctx.from.first_name + ")";
+        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === techx || ctx.from.username === anabel || ctx.from.username === naye || ctx.from.username === aitor || ctx.from.username === derik) {
+            ctx.reply("Twitch de el señor DrossRotzank \n\n• https://twitch.tv/thedrossrotzank");
+        }
+        else {
+            ctx.reply(noVip);
+            console.log(noVIPconsole);
+        }
+});
+
+bot.command('kill', (ctx) => {
+    let noVip = "Tu no eres VIP, no te puedo dar acceso a este comando y no creo que quieras ver este comando en accion" + skull;
+    let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un VIP " + "(" + ctx.from.first_name + ")";
+        if(ctx.from.username === tania || ctx.from.username === seitan || ctx.from.username === techx || ctx.from.username === anabel || ctx.from.username === naye || ctx.from.username === aitor || ctx.from.username === derik) {
+            ctx.reply("A continucion se iniciara una eliminacion masiva de miembros del grupo" + skull);
+        }
+        else {
+            ctx.reply(noVip);
+            console.log(noVIPconsole);
         }
 });
 
@@ -192,7 +247,7 @@ bot.command('SoyVip', (ctx) => {
 bot.command('dev', (ctx) => {
     let noVIP = "Tu no eres DEVELOPER, No trates de engañar al PerturbaBot" + skull;
     let noVIPconsole = "El usuario " + ctx.from.username + " intento hacerse pasar por un DEVELOPER " + "(" + ctx.from.first_name + ")";
-        if(ctx.from.username === TechX || ctx.from.id === Anabel) {
+        if(ctx.from.username === techx || ctx.from.username === anabel) {
             ctx.reply("LOS COMANDOS DEV SON: \n\n• /report - para ver a donde reportar un bug o falla. \n• /SoyDev - Inicio y reconocimiento de un Dev. \n• /devs - para ver el listado de developers que hicieron y testearon mi funcionalidad. \n• /code - para ver mi codigo en GitHub. \n• /logs - para ver las novedades a nivel de programacion y testing. \n• /test - para ver las cosas que hay por testear. \n• /bugs - para ver los bugs actuales que reparar. \n• PROXIMAMENTE.")
         } 
         else {
@@ -203,7 +258,7 @@ bot.command('dev', (ctx) => {
 
 //----------------[DEV CMDS]----------------
 bot.command('SoyDev', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
             ctx.reply("Holaa!! " + ctx.from.first_name + " Eres un usuario del equipo de desarrollo, eres miembro de las variables developer y tienes acceso a absolutamente todas las funciones de mi codigo, espero te agrade ser parte del equipo \n\nUsa /dev para ver los comandos para Developers");
             console.log("Ahora " + ctx.from.first_name + " Es miembro del equipo de desarrollo de PerturbaBot");
         }
@@ -214,7 +269,7 @@ bot.command('SoyDev', (ctx) => {
 });
 
 bot.command('report', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
         ctx.reply("Puedes reportas las fallas que encuentres con @Mr_TechX aqui en Telegram o en nuestro servidor oficial de discord https://discord.gg/R3bgKtMsSH " + skull);
         console.log('Fue encontrado un nuevo error o bug que tal vez sea reportado pronto.');
     }
@@ -225,8 +280,8 @@ bot.command('report', (ctx) => {
 });
 
 bot.command('devs', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
-        ctx.reply("*Mis desarrolladores y testers son:* \n\n• Anabel GR - Prueba las funciones de codigo y reporta fallos de funcionalidad \n\n• @Mr_TechX - Programador y escritor del codigo de funcionalidad del bot.");
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
+        ctx.reply("*Mis desarrolladores y testers son:* \n\n• @AnabelleSR - Prueba las funciones de codigo y reporta fallos de funcionalidad \n\n• @Mr_TechX - Programador y escritor del codigo de funcionalidad del bot.");
     }
     else {
         ctx.reply("Por serguridad no te puedo decir todos los miembros del equipo de desarrollo a menos que me sea permitido, pero puedes comunicarte con @Mr_TechX para reportar o sugerir algo.");
@@ -234,12 +289,55 @@ bot.command('devs', (ctx) => {
 });
 
 bot.command('code', (ctx) => {
-    if(ctx.from.username === TechX || ctx.from.id === Anabel) {
-        ctx.reply("Puedes ver mi codigo fuente para revisarlo en busca de errores o sugerir modificaciones, solo visita mi [GitHub](https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/Telegram/index.js) o revisa el repositorio completo [aqui](https://github.com/PerturbaBot)")
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
+        ctx.reply("Puedes ver mi codigo fuente para revisarlo en busca de errores o sugerir modificaciones, solo visita mi GitHub https://github.com/PerturbaBot/PerturbaBot-Code/blob/main/Telegram/index.js o revisa el repositorio completo aqui https://github.com/PerturbaBot")
     }
-})
+    else {
+        ctx.reply("Por seguridad no te puedo mostrar mi codigo fuente, pero si estas interesado realmente, habla con @Mr_TechX")
+    }
+});
+
+bot.command('logs', (ctx) => {
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
+        ctx.reply("Los logs de esta version son: \n• Lanzamiento de la web /frases \n• Comandos para usuarios VIP \n • Comandos internos para equipo de desarrollo \n • Comandos simples de diversion \n • Menú de comandos simple \n\n • MAS MEJORAS PROXIMAMENTE \nMrTechX | PerturbaBot - v1.0.0")
+    }
+    else {
+        ctx.reply("Por medidas de precaucion anti spam, no puedes ejecutar este comando, dile a un desarrollador que lo ejecute por ti, el desarrollador principal es @Mr_TechX")
+    }
+});
+
+bot.command('test', (ctx) => {
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
+        ctx.reply("Elementos por Testear: \n\n • Comandos VIP \n • Comandos dev \n • Compatibilidad de usuarios \n• Nota: Confirmar que los usuarios VIP y DEV tengan nombre de usuario, de lo contrario ponerse nombre de usuario para facilitar el uso del bot")
+    }
+    else {
+        ctx.reply("No creo que sea necesario que veas los elemenos por testear, ya que no formas parte del equipo de desarrollo y testing")
+    }
+});
+
+bot.command('bugs', (ctx) => {
+    if(ctx.from.username === techx || ctx.from.username === anabel) {
+        ctx.reply("Los bugs por reparar actualmente son: \n\n• Comandos Dev que no responden a las ordenes \n• Comandos VIP que no responden a todos los VIP \n• Compatibilidad de usuarios \n\n• Esperamos no encontrar mas")
+    }
+    else {
+        ctx.reply("No creo que sea necesario que veas los bugs de mi codigo ya que no formas parte del equipo de soporte y desarrollo")
+    }
+});
 
 //-----------------[Soporte]----------------
+bot.command('post', (ctx) => {
+    if(ctx.from.username === techx) {
+        ctx.reply("Lanzamiento de PerturbaBot: \n• Hola Soy PerturbaBot, Un Bot MultiPlataforma que funciona tanto en Telegram como en Discord, cuento con una pagina web que puedes ver con el comando /frases , Tengo comandos especiales para algunos usuarios, si crees pertenecer a uno de los grupos especiales, prueba suerte con los comandos /SoyVip y /SoyDev \n\n• Puedes contactarte con @" + techx + " Para resolver cualquier duda que tengas sobre PerturbaBot")
+    }
+    else {
+        ctx.reply("Por motivos de prevenir el spam de comandos, tu no tienes permiso de ejecutar este comando, lo siento" + skull)
+    }
+});
+
+bot.command('status', (ctx) => {
+    ctx.reply("PerturbaBot is Online now" + skull)
+});
+
 bot.on('text', ctx => {
     if(ctx.chat.type == 'private'){
         ctx.reply('Podrias ejecutar un comando? puedes ver la lista de comandos ejecutando /b_menu ' + skull)
@@ -270,13 +368,15 @@ if(ctx.chat.type == 'private'){
     ctx.reply('Aún está en proceso mi función para ver tus perturbadores videos' + skull)
 }});
 
-
 //----------------[Lanzamiento]----------------
 bot.launch();
 
 //----------------[Commnents]------------------
 //Tania estrella fugaz les dice cualquier sueño
 //que tengas si crees en él se hará realidad.
+
+//---------------------------------------------
+//Anabel GR dice: ""
 
 //---------------------------------------------
 //MrTechX dice "El mayor riesgo es no correr
@@ -288,4 +388,37 @@ bot.launch();
 //descansar, pero no a renunciar"
 
 //---------------------------------------------
-//
+//Aitor García dice "Sé tu mismo, y serás quién
+//querias ser"
+
+//---------------------------------------------
+//Naye dice "Si pudiéramos mirar el corazón del
+//otro, percibir lo que siente y saber por qué
+//hace lo que hace, se acabarían los prejuicios. 
+//Pd. + amor y - guerra."
+
+//---------------------------------------------
+//Adan dice: Cuando vez la peor cara del mundo
+//te das cuenta que las personas son buenas o
+//malas según lo que valgas para ellos, así que
+//sin importar lo que te digan de alguien,
+//júsgalo solamente por como es contigo
+
+//---------------------------------------------
+//Aitor dice: La muerte está tan segura de
+//vencernos al final de la recta, que nos dá toda
+//una vida de ventaja..
+
+//---------------------------------------------
+//Lina dice: Tómatela leve que la vida se hace
+//cada dia ✌🏻😎
+
+//---------------------------------------------
+//Derik dice: La vida es maravillosa si no se
+//le tiene miedo
+
+////////////////////////////////////////////////
+//Tania dice: los quiero mucho y les mando un
+//fuerte abrazo cósmico estelar 🌟💫 junto con
+//polvo de estrellas mágico, para que sonrían
+//siempre 😊
